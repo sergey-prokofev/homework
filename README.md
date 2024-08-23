@@ -1,4 +1,4 @@
-# Домашнее задание к занятию "`Git`" - `Prokofev Sergey`
+# Домашнее задание к занятию "`Что такое DevOps. СI/СD`" - `Prokofev Sergey`
 
 
 ### Инструкция по выполнению домашнего задания
@@ -24,11 +24,11 @@
 
 ### Задание 1
 
-https://github.com/sergey-prokofev/project1/commit/5b9d7629364bfed5c59f73c6368ef69e22e76bc2
+![Скриншот-1](https://github.com/sergey-prokofev/homework/blob/8-02-hw/img/img15.png)
 
 ### Задание 2
 
-https://github.com/sergey-prokofev/project1/commit/74455624c91e5150b693a65f1f8ead85f156c2dd
+![Скриншот-1](https://github.com/sergey-prokofev/homework/blob/8-02-hw/img/img15.png)
 
 ### Задание 3
 

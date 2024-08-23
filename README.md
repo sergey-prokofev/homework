@@ -24,7 +24,9 @@
 
 ### Задание 1
 
-![Скриншот-1](https://github.com/sergey-prokofev/homework/blob/8-02-hw/img/img15.png)
+![Скриншот-1](https://github.com/sergey-prokofev/homework/blob/8-02-hw/img/1.PNG)
+![Скриншот-2](https://github.com/sergey-prokofev/homework/blob/8-02-hw/img/2.PNG)
+![Скриншот-3](https://github.com/sergey-prokofev/homework/blob/8-02-hw/img/3.PNG)
 
 ### Задание 2
 

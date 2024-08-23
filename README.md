@@ -30,12 +30,11 @@
 
 ### Задание 2
 
-![Скриншот-1](https://github.com/sergey-prokofev/homework/blob/8-02-hw/img/img15.png)
+![Скриншот-1](https://github.com/sergey-prokofev/homework/blob/8-02-hw/img/4.PNG)
+![Скриншот-2](https://github.com/sergey-prokofev/homework/blob/8-02-hw/img/5.PNG)
+![Скриншот-3](https://github.com/sergey-prokofev/homework/blob/8-02-hw/img/6.PNG)
 
 ### Задание 3
 
-https://github.com/sergey-prokofev/project1/network
-
-### Задание 4
-
-https://github.com/sergey-prokofev/project1/network
+![Скриншот-1](https://github.com/sergey-prokofev/homework/blob/8-02-hw/img/7.PNG)
+![Скриншот-2](https://github.com/sergey-prokofev/homework/blob/8-02-hw/img/8.PNG)

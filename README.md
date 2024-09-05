@@ -40,7 +40,7 @@ systemctl restart zabbix-server zabbix-agent nginx php8.3-fpm
 systemctl enable zabbix-server zabbix-agent nginx php8.3-fpm
 ```
 
-![Скриншот-1](https://github.com/sergey-prokofev/homework/blob/zabbix-02-hw/img/1.PNG)
+![Скриншот-1](https://github.com/sergey-prokofev/homework/blob/zabbix-02-hs/img/1.PNG)
 
 ---
 
@@ -58,6 +58,6 @@ systemctl restart zabbix-agent
 systemctl enable zabbix-agent
 ```
 
-![Скриншот-1](https://github.com/sergey-prokofev/homework/blob/zabbix-02-hw/img/2.PNG)
-![Скриншот-2](https://github.com/sergey-prokofev/homework/blob/zabbix-02-hw/img/3.PNG)
-![Скриншот-3](https://github.com/sergey-prokofev/homework/blob/zabbix-02-hw/img/4.PNG)
+![Скриншот-1](https://github.com/sergey-prokofev/homework/blob/zabbix-02-hs/img/2.PNG)
+![Скриншот-2](https://github.com/sergey-prokofev/homework/blob/zabbix-02-hs/img/3.PNG)
+![Скриншот-3](https://github.com/sergey-prokofev/homework/blob/zabbix-02-hs/img/4.PNG)

@@ -1,4 +1,4 @@
-# Домашнее задание к занятию "`Система мониторинга Zabbix`" - `Sergey Prokofev`
+# Домашнее задание к занятию "`Система мониторинга Zabbix. Часть 2`" - `Sergey Prokofev`
 
 
 ### Инструкция по выполнению домашнего задания
@@ -24,40 +24,17 @@
 
 ### Задание 1
 
-```
-su -
-apt install postgresql
-wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_7.0-2+ubuntu24.04_all.deb
-dpkg -i zabbix-release_7.0-2+ubuntu24.04_all.deb
-apt update
-apt install zabbix-server-pgsql zabbix-frontend-php php8.3-pgsql zabbix-nginx-conf zabbix-sql-scripts
-sudo -u postgres createuser --pwprompt zabbix
-sudo -u postgres createdb -O zabbix zabbix
-zcat /usr/share/zabbix-sql-scripts/postgresql/server.sql.gz | sudo -u zabbix psql zabbix
-nano /etc/zabbix/zabbix_server.conf
-nano /etc/zabbix/nginx.conf
-systemctl restart zabbix-server zabbix-agent nginx php8.3-fpm
-systemctl enable zabbix-server zabbix-agent nginx php8.3-fpm
-```
-
-![Скриншот-1](https://github.com/sergey-prokofev/homework/blob/zabbix-02-hs/img/1.PNG)
+![Задание-1](https://github.com/sergey-prokofev/homework/blob/zabbix-03-hw/img/1.PNG)
 
 ---
 
-### Задание 2
+### Задание 2,3
 
+![Задание-2,3](https://github.com/sergey-prokofev/homework/blob/zabbix-03-hw/img/2.PNG)
 
-```
-su -
-wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_7.0-2+ubuntu24.04_all.deb
-dpkg -i zabbix-release_7.0-2+ubuntu24.04_all.deb
-apt update
-apt install zabbix-agent
-nano /etc/zabbix/zabbix_agentd.conf
-systemctl restart zabbix-agent
-systemctl enable zabbix-agent
-```
+---
 
-![Скриншот-1](https://github.com/sergey-prokofev/homework/blob/zabbix-02-hs/img/2.PNG)
-![Скриншот-2](https://github.com/sergey-prokofev/homework/blob/zabbix-02-hs/img/3.PNG)
-![Скриншот-3](https://github.com/sergey-prokofev/homework/blob/zabbix-02-hs/img/4.PNG)
+### Задание 4
+
+![Задание-4](https://github.com/sergey-prokofev/homework/blob/zabbix-03-hw/img/3.PNG)
+

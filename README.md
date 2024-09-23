@@ -42,12 +42,6 @@ provider "yandex" {
 ```
 
 ```
-#resource "yandex_vpc_network" "network-1" {
-#    name = "network-1"
-#}
-
-
-
 resource "yandex_compute_disk" "disk1" {
     name = "disk1"
     size = 12

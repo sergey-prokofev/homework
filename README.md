@@ -1,4 +1,4 @@
-# Домашнее задание к занятию "`Название занятия`" - `Фамилия и имя студента`
+# Домашнее задание к занятию "`Отказоустойчивость в облаке`" - `Sergey Prokofev`
 
 
 ### Инструкция по выполнению домашнего задания
@@ -24,94 +24,182 @@
 
 ### Задание 1
 
-`Приведите ответ в свободной форме........`
-
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
-
 ```
-Поле для вставки кода...
-....
-....
-....
-....
-```
+terraform {
+  required_providers {
+    yandex = {
+      source = "yandex-cloud/yandex"
+    }
+  }
+}
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота 1](ссылка на скриншот 1)`
-
-
----
-
-### Задание 2
-
-`Приведите ответ в свободной форме........`
-
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
-
-```
-Поле для вставки кода...
-....
-....
-....
-....
+provider "yandex" {
+  token = var.token
+  cloud_id = "b1ge262aciffhrs6noir"
+  folder_id = "b1gi9t3tdol0kf9m574t"
+  zone = "ru-central1-a" 
+}
 ```
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота 2](ссылка на скриншот 2)`
+```
+#resource "yandex_vpc_network" "network-1" {
+#    name = "network-1"
+#}
 
 
----
 
-### Задание 3
+resource "yandex_compute_disk" "disk1" {
+    name = "disk1"
+    size = 12
+    image_id = "fd870suu28d40fqp8srr"
+}
 
-`Приведите ответ в свободной форме........`
+resource "yandex_compute_disk" "disk2" {
+    name = "disk2"
+    size = 12
+    image_id = "fd870suu28d40fqp8srr"
+}
 
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
+resource "yandex_vpc_address" "address1" {
+    name = "address1"
+    external_ipv4_address {
+      zone_id = "ru-central1-a"
+    }
+}
+
+resource "yandex_vpc_address" "address2" {
+    name = "address2"
+    external_ipv4_address {
+      zone_id = "ru-central1-a"
+    }
+}
+
+resource "yandex_compute_instance" "host1" {
+    name = "host1"
+    zone = "ru-central1-a"
+    resources {
+      cores = 2
+      memory = 2
+    }
+
+    boot_disk {
+      disk_id = yandex_compute_disk.disk1.id
+    }
+
+    network_interface {
+      subnet_id = "e9bkrdr2afi4mjq4lr3h"
+      nat = true
+      nat_ip_address = yandex_vpc_address.address1.external_ipv4_address[0].address
+    }
+
+    metadata = {
+      user-data = "${file("user-data1.yml")}"
+    }
+
+    scheduling_policy {
+      preemptible = true
+    }
+}
+
+resource "yandex_compute_instance" "host2" {
+        name = "host2"
+    zone = "ru-central1-a"
+    resources {
+      cores = 2
+      memory = 2
+    }
+
+    boot_disk {
+      disk_id = yandex_compute_disk.disk2.id
+    }
+
+    network_interface {
+      subnet_id = "e9bkrdr2afi4mjq4lr3h"
+      nat = true
+      nat_ip_address = yandex_vpc_address.address2.external_ipv4_address[0].address
+    }
+
+    metadata = {
+      user-data = "${file("user-data2.yml")}"
+    }
+
+    scheduling_policy {
+      preemptible = true
+    }
+}
+
+
+
+resource "yandex_lb_target_group" "target-group" {
+  name      = "target-group"
+  
+  target {
+    subnet_id = yandex_compute_instance.host1.network_interface.0.subnet_id
+    address   = yandex_compute_instance.host1.network_interface.0.ip_address
+  }
+
+  target {
+    subnet_id = yandex_compute_instance.host2.network_interface.0.subnet_id
+    address   = yandex_compute_instance.host2.network_interface.0.ip_address
+  }
+}
+
+
+resource "yandex_lb_network_load_balancer" "balancer" {
+  name = "balancer"
+
+  listener {
+    name = "my-listener"
+    port = 80
+    external_address_spec {
+      ip_version = "ipv4"
+    }
+  }
+
+  attached_target_group {
+    target_group_id = yandex_lb_target_group.target-group.id
+
+    healthcheck {
+      name = "http"
+      http_options {
+        port = 80
+        path = "/"
+      }
+    }
+  }
+}
+```
+
+
 
 ```
-Поле для вставки кода...
-....
-....
-....
-....
+datasource:
+ Ec2:
+  strict_id: false
+ssh_pwauth: no
+users:
+- name: admin
+  sudo: ALL=(ALL) NOPASSWD:ALL
+  shell: /bin/bash
+  ssh_authorized_keys:
+  - ssh-rsa 
 ```
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота](ссылка на скриншот)`
 
-### Задание 4
-
-`Приведите ответ в свободной форме........`
-
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
 
 ```
-Поле для вставки кода...
-....
-....
-....
-....
+output "external_ipv4_address1" {
+    value = yandex_vpc_address.address1.external_ipv4_address[0].address
+  
+}
+
+output "external_ipv4_address2" {
+    value = yandex_vpc_address.address2.external_ipv4_address[0].address
+  
+}
 ```
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота](ссылка на скриншот)`
+![Задание-1](https://github.com/sergey-prokofev/homework/blob/otazoystoi-4-md/img/1.PNG)
+
+
+![Задание-1](https://github.com/sergey-prokofev/homework/blob/otazoystoi-4-md/img/2.PNG)

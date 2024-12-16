@@ -24,13 +24,13 @@
 
 ### Задание 1
 
-![Задание-2](https://github.com/sergey-prokofev/homework/blob/db-13-02/img/2.PNG)
-![Задание-2](https://github.com/sergey-prokofev/homework/blob/db-13-02/img/3.PNG)
+![Задание-2](https://github.com/sergey-prokofev/homework/blob/13-02/img/2.PNG)
+![Задание-2](https://github.com/sergey-prokofev/homework/blob/13-02/img/3.PNG)
 
 ---
 
 ### Задание 2
 
-![Задание-2](https://github.com/sergey-prokofev/homework/blob/db-13-02/img/4.PNG)
-![Задание-2](https://github.com/sergey-prokofev/homework/blob/db-13-02/img/5.PNG)
-![Задание-2](https://github.com/sergey-prokofev/homework/blob/db-13-02/img/6.PNG)
+![Задание-2](https://github.com/sergey-prokofev/homework/blob/13-02/img/4.PNG)
+![Задание-2](https://github.com/sergey-prokofev/homework/blob/13-02/img/5.PNG)
+![Задание-2](https://github.com/sergey-prokofev/homework/blob/13-02/img/6.PNG)

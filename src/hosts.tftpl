@@ -1,0 +1,23 @@
+[webservers]
+
+%{~ for i in webservers ~}
+%{ if try(i["network_interface"][0]["nat_ip_address"], null) != null ~}
+${i["name"]}   ansible_host=${i["network_interface"][0]["nat_ip_address"]}    fqdn=${i["id"]}.auto.internal
+%{ endif ~}
+%{~ endfor ~}
+
+[databases]
+
+%{~ for i in databases ~}
+%{ if try(i["network_interface"][0]["nat_ip_address"], null) != null ~}
+${i["name"]}   ansible_host=${i["network_interface"][0]["nat_ip_address"]}    fqdn=${i["id"]}.auto.internal
+%{ endif ~}
+%{~ endfor ~}
+
+[storage]
+
+%{~ for i in storage ~}
+%{ if try(i["network_interface"][0]["nat_ip_address"], null) != null ~}
+${i["name"]}   ansible_host=${i["network_interface"][0]["nat_ip_address"]}    fqdn=${i["id"]}.auto.internal
+%{ endif ~}
+%{~ endfor ~} 

@@ -11,7 +11,7 @@ resource "yandex_compute_instance" "db" {
   resources { 
     cores         = each.value.cpu
     memory        = each.value.ram
-    core_fraction = 5
+    core_fraction = each.value.core_fraction
   }
 
   boot_disk {

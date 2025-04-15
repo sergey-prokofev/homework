@@ -1,19 +1,19 @@
 resource "yandex_compute_disk" "disk" {
     count = 3
     name = "disk-${count.index+1}"
-    type = "network-hdd"
+    type = var.default_disk_type
     size = 1
 }
 
 resource "yandex_compute_instance" "storage" {
 
-  name        = "storage" 
+  name        = var.storage_name
   platform_id = var.default_platform
 
   resources { 
-    cores         = 2
-    memory        = 1
-    core_fraction = 5
+    cores         = var.vms_resources.storage.cores
+    memory        = var.vms_resources.storage.memory
+    core_fraction = var.vms_resources.storage.core_fraction
   }
 
   boot_disk {

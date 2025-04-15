@@ -40,20 +40,74 @@ variable "default_platform" {
   description = "platform_id"
 }
 
+variable "default_disk_type" {
+  type        = string
+  default     = "network-hdd"
+  description = "platform_id"
+}
+
 variable "each_vm" {
-  type = list(object({vm_name=string, cpu=number, ram=number, disk_volume=number }))
+  type = list(object({vm_name=string, cpu=number, ram=number, disk_volume=number, core_fraction=number }))
   default = [
     {
       vm_name   = "main"
       cpu  = 2
       ram  = 4
       disk_volume = 20
+      core_fraction = 5
     },
     {
       vm_name   = "replica"
       cpu  = 2
       ram  = 2
       disk_volume = 18
+      core_fraction = 5
     }
   ]
+}
+
+variable "vms_resources" {
+  type       = map(object({
+    cores    = number
+    memory   = number
+    core_fraction = number
+  }))
+  description = "resources"
+  default = {
+  web=({
+    cores         = 2
+    memory        = 1
+    core_fraction = 5
+  }),
+  storage=({
+    cores         = 2
+    memory        = 1
+    core_fraction = 5
+  })
+}
+}
+
+
+variable "storage_name" {
+  type        = string
+  default     = "storage"
+  description = "storage vm name"
+}
+
+variable "default_protocol" {
+  type        = string
+  default     = "TCP"
+  description = "default protocol"
+}
+
+variable "default_v4_cidr_blocks" {
+  type        = list(string)
+  default     = ["0.0.0.0/0"]
+  description = "default v4_cidr_blocks"
+}
+
+variable "default_ports" {
+  type        = map(number)
+  default     = {ssh=22, http=80, https=443}
+  description = "default ports"
 }

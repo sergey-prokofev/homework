@@ -93,21 +93,3 @@ variable "storage_name" {
   default     = "storage"
   description = "storage vm name"
 }
-
-variable "default_protocol" {
-  type        = string
-  default     = "TCP"
-  description = "default protocol"
-}
-
-variable "default_v4_cidr_blocks" {
-  type        = list(string)
-  default     = ["0.0.0.0/0"]
-  description = "default v4_cidr_blocks"
-}
-
-variable "default_ports" {
-  type        = map(number)
-  default     = {ssh=22, http=80, https=443}
-  description = "default ports"
-}

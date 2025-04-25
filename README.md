@@ -19,6 +19,10 @@
 2. `CPULA 1/5/15`
 ```
 node_load1{instance="nodeexporter:9100"} 
+
+node_load5{instance="nodeexporter:9100"}
+
+node_load15{instance="nodeexporter:9100"}
 ```
 3. `количество свободной оперативной памяти`
 ```

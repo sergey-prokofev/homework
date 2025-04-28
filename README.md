@@ -24,9 +24,9 @@
 3. `docker-compose манифест (если вы не использовали директорию help);`
 4. `ваши yml-конфигурации для стека (если вы не использовали директорию help).`
 
-![Задание-1](https://github.com/sergey-prokofev/homework/blob/monitoring_elk/img/1.PNG)
+![Задание-1](https://github.com/sergey-prokofev/homework/blob/monitoring_Elk/img/1.PNG)
 
-![Задание-1](https://github.com/sergey-prokofev/homework/blob/monitoring_elk/img/2.PNG)
+![Задание-1](https://github.com/sergey-prokofev/homework/blob/monitoring_Elk/img/2.PNG)
 
 ---
 
@@ -38,6 +38,6 @@
 
 `В манифесте директории help также приведенно dummy-приложение, которое генерирует рандомные события в stdout-контейнера. Эти логи должны порождать индекс logstash-* в elasticsearch. Если этого индекса нет — воспользуйтесь советами и источниками из раздела «Дополнительные ссылки» этого задания.`
 
-![Задание-1](https://github.com/sergey-prokofev/homework/blob/monitoring_elk/img/3.PNG)
+![Задание-1](https://github.com/sergey-prokofev/homework/blob/monitoring_Elk/img/3.PNG)
 
-![Задание-1](https://github.com/sergey-prokofev/homework/blob/monitoring_elk/img/4.PNG) 
+![Задание-1](https://github.com/sergey-prokofev/homework/blob/monitoring_Elk/img/4.PNG) 

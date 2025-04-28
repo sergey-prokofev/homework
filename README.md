@@ -39,4 +39,4 @@
 
 ![Задание-1](https://github.com/sergey-prokofev/homework/blob/monitoring_elk/img/3.PNG)
 
-![Задание-1](https://github.com/sergey-prokofev/homework/blob/monitoring_elk/img/4.PNG)
+![Задание-1](https://github.com/sergey-prokofev/homework/blob/monitoring_elk/img/4.PNG) 

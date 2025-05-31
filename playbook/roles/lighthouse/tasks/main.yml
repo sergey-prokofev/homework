@@ -1,0 +1,27 @@
+---
+- name: Install git
+  ansible.builtin.yum:
+    name:
+      - git
+    state: present
+
+- name: Clone Lighthouse repository
+  ansible.builtin.git:
+    repo: "{{ lighthouse_git }}"
+    dest: "{{ lighthouse_dir }}"
+    version: "master"
+
+- name: Deploy lighthouse config
+  ansible.builtin.template:
+    src: "templates/lighthouse.conf.j2"
+    dest: "/etc/nginx/conf.d/lighthouse.conf"
+    mode: '0644'
+  notify: Reload nginx
+
+- name: Set correct permissions
+  ansible.builtin.file:
+    path: "{{ lighthouse_dir }}"
+    owner: "{{ nginx_user | default('nginx') }}"
+    group: "{{ nginx_user | default('nginx') }}"
+    mode: "0755"
+    recurse: true

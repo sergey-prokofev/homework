@@ -1,0 +1,31 @@
+---
+- name: Download Vector RPM directly
+  ansible.builtin.get_url:
+    url: "https://packages.timber.io/vector/{{ vector_version }}/vector-{{ vector_version }}-1.x86_64.rpm"
+    dest: "/tmp/vector.rpm"
+    mode: '0644'
+- name: Install downloaded package
+  ansible.builtin.yum:
+    name: "/tmp/vector.rpm"
+    state: present
+    disablerepo: '*'
+
+- name: Deploy systemd service
+  ansible.builtin.template:
+    src: vector.service.j2
+    dest: /etc/systemd/system/vector.service
+    mode: '0644'
+  notify: Restart Vector
+
+- name: Create config directory
+  ansible.builtin.file:
+    path: "{{ vector_config_dir }}"
+    state: directory
+    mode: '0755'
+
+- name: Deploy Vector config yml
+  ansible.builtin.template:
+    src: "templates/vector.yml.j2"
+    dest: "/etc/vector/vector.yaml"
+    mode: '0644'
+  notify: Restart Vector

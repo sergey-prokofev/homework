@@ -1,0 +1,25 @@
+---
+vector_roles:
+  aggregator: "vector-01.yourdomain.com"
+  agents:
+    - "web-01.yourdomain.com"
+    - "web-02.yourdomain.com"
+vector_config:
+  sources:
+    demo_logs:
+      ignore_older_sec: 600
+      include:
+      - /home/aragast/logs/*.log
+      read_from: beginning
+      type: file
+  sinks:
+    to_clickhouse:
+      type: clickhouse
+      inputs:
+        - demo_logs
+      database: logs
+      endpoint: "http://{{ hostvars['clickhouse-01']['ansible_host'] }}:8123"
+      table: sys_logs
+      compression: gzip
+      healthcheck: false 
+      skip_unknown_fields: true

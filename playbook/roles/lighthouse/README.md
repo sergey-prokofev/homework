@@ -35,7 +35,3 @@
 10. Выложите playbook в репозиторий.
 11. В ответе дайте ссылки на оба репозитория с roles и одну ссылку на репозиторий с playbook.
 
-[LightHouse](https://github.com/sergey-prokofev/lighthouse-role.git)
-
-[Vector](https://github.com/sergey-prokofev/vector-role.git)
-

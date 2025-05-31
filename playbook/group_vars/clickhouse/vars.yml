@@ -1,0 +1,19 @@
+---
+clickhouse_version: "22.3.3.44"
+clickhouse_packages:
+  - clickhouse-client
+  - clickhouse-server
+  - clickhouse-common-static
+clickhouse_password: "pass"
+clickhouse_users:
+  - name: "user"
+    password: "pass"
+    networks: ["10.0.0.0/8", "192.168.0.0/16"]
+    database: "logs"
+  
+  - name: "monitoring"
+    password: "monitoring_pass"
+    networks: ["0.0.0.0/0"]
+    
+clickhouse_databases:
+      - name: "logs"

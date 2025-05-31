@@ -1,0 +1,4 @@
+---
+lighthouse_dir: "/opt/lighthouse"
+lighthouse_git: "https://github.com/VKCOM/lighthouse.git"
+nginx_user_name: "nginx"

@@ -1,0 +1,64 @@
+---
+- name: Install Nginnx
+  hosts: lighthouse
+  become: true
+  handlers:
+    - name: Start nginx
+      ansible.builtin.command: "nginx"
+    - name: Reload nginx
+      ansible.builtin.command: "nginx -s reload"
+  tasks:
+    - name: Update all packages and repositories
+      ansible.builtin.yum:
+        update_cache: true
+
+    - name: Install epel-release
+      ansible.builtin.yum:
+        name: epel-release
+        state: present
+
+    - name: Install Nginx
+      ansible.builtin.yum:
+        name: nginx
+        state: present
+      notify: Start nginx
+
+    - name: Ensure Nginx directories exist
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        owner: "{{ nginx_user | default('nginx') }}"
+        group: "{{ nginx_user | default('nginx') }}"
+        mode: "0755"
+      loop:
+        - /etc/nginx/conf.d
+        - /var/log/nginx
+
+    - name: Deploy Nginx config
+      ansible.builtin.template:
+        src: "templates/nginx.conf.j2"
+        dest: "/etc/nginx/nginx.conf"
+        mode: '0644'
+        validate: "nginx -t -c %s"
+      notify: Reload nginx
+
+    - name: Start and enable Nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true
+
+- name: Install Lighthouse
+  hosts: lighthouse
+  roles:
+    -lighthouse
+
+- name: Install Clickhouse
+  hosts: clickhouse
+  roles:
+    -clickhouse
+
+- name: Install Vector
+  hosts: vector
+  roles:
+    -vector

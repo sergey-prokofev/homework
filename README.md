@@ -27,4 +27,4 @@
 ![Задание-1](https://github.com/sergey-prokofev/homework/blob/kube-2.1/img/2.PNG)
 4. Предоставить манифесты Deployment, а также скриншоты или вывод команды из п. 2.
 
-[Deployment](https://github.com/sergey-prokofev/homework/blob/kube-2.1/daemonset.yaml).
+[DaemonSet](https://github.com/sergey-prokofev/homework/blob/kube-2.1/daemonset.yaml).

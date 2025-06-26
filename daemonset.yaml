@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: multitool
+  labels:
+    app: multitool
+spec:
+  selector:
+    matchLabels:
+      app: multitool
+  template:
+    metadata:
+      labels:
+        app: multitool
+    spec:
+      containers:
+      - name: multitool
+        image: wbitt/network-multitool:openshift
+        env:
+        - name: HTTP_PORT
+          value: "8080"
+        - name: HTTPS_PORT
+          value: "11443"
+        volumeMounts:
+        - name: my-volume
+          mountPath: /logs/
+          readOnly: true
+      volumes:
+      - name: my-volume
+        hostPath: 
+          path: /var/log/

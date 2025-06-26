@@ -24,7 +24,7 @@
 1. Создать DaemonSet приложения, состоящего из multitool.
 2. Обеспечить возможность чтения файла `/var/log/syslog` кластера MicroK8S.
 3. Продемонстрировать возможность чтения файла изнутри пода.
-![Задание-1](https://github.com/sergey-prokofev/homework/blob/kube-2.1/img/2e.PNG)
+![Задание-1](https://github.com/sergey-prokofev/homework/blob/kube-2.1/img/2.PNG)
 4. Предоставить манифесты Deployment, а также скриншоты или вывод команды из п. 2.
 
 [Deployment](https://github.com/sergey-prokofev/homework/blob/kube-2.1/daemonset.yaml).

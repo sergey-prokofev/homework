@@ -14,9 +14,12 @@
 5. Предоставить манифесты Deployment и Service в решении, а также скриншоты или вывод команды п.4.
 
 [frontend](https://github.com/sergey-prokofev/homework/blob/kube-1.5/frontend.yaml).
+
 [backend](https://github.com/sergey-prokofev/homework/blob/kube-1.5/backend.yaml).
+
 [Service](https://github.com/sergey-prokofev/homework/blob/kube-1.5/service.yaml).
-------
+
+---
 
 ### Задание 2. Создать Ingress и обеспечить доступ к приложениям снаружи кластера
 

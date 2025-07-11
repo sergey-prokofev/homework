@@ -1,0 +1,11 @@
+replicas: 1
+containers:
+  name: prometheus
+  image: prom/prometheus
+  tag: latest
+
+labels:
+  app: prometheus
+service:
+  port: 9090
+  targetPort: 30090

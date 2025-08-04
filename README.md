@@ -17,8 +17,11 @@
 ![Задание-1](https://github.com/sergey-prokofev/homework/blob/kube-2.2/img/3.PNG)
 `файл не был удален так как ReclaimPolicy не была задан явно то в этом случае она Retain`
 5. Предоставить манифесты, а также скриншоты или вывод необходимых команд.
+
 [Deployment](https://github.com/sergey-prokofev/homework/blob/kube-2.2/deployment.yaml).
+
 [pvc](https://github.com/sergey-prokofev/homework/blob/kube-2.2/pvc.yaml).
+
 [pv](https://github.com/sergey-prokofev/homework/blob/kube-2.2/pv.yaml).
 
 ---
@@ -31,7 +34,9 @@
 2. Создать Deployment приложения состоящего из multitool, и подключить к нему PV, созданный автоматически на сервере NFS.
 ![Задание-1](https://github.com/sergey-prokofev/homework/blob/kube-2.2/img/4.PNG)
 3. Продемонстрировать возможность чтения и записи файла изнутри пода. 
-![Задание-1](https://github.com/sergey-prokofev/homework/blob/kube-2.2/img/45.PNG)
+![Задание-1](https://github.com/sergey-prokofev/homework/blob/kube-2.2/img/5.PNG)
 4. Предоставить манифесты, а также скриншоты или вывод необходимых команд.
+
 [Deployment](https://github.com/sergey-prokofev/homework/blob/kube-2.2/deployment_2.yaml).
+
 [pvc](https://github.com/sergey-prokofev/homework/blob/kube-2.2/pvc_2.yaml).

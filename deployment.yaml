@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: busybox-multitool
+  namespace: web
+  labels:
+    app: busybox
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: busybox
+  template:
+    metadata:
+      labels:
+        app: busybox
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        command: ['sh', '-c', 'while true; do echo Hello >> /output/test.txt; sleep 5; done']
+        volumeMounts:
+        - name: vol
+          mountPath: /output
+      - name: multitool
+        image: wbitt/network-multitool:openshift
+        env:
+        - name: HTTP_PORT
+          value: "8080"
+        - name: HTTPS_PORT
+          value: "11443"
+        volumeMounts:
+        - name: vol
+          mountPath: /input
+      volumes:
+        - name: vol
+          persistentVolumeClaim:
+            claimName: pvc-vol

@@ -9,8 +9,8 @@
 3. Запуск etcd производить на мастере.
 4. Способ установки выбрать самостоятельно.
 
-![Задание-2](https://github.com/sergey-prokofev/homework/blob/kube-3.42/img/1.PNG)
-![Задание-2](https://github.com/sergey-prokofev/homework/blob/kube-3.42/img/2.PNG)
+![Задание-2](https://github.com/sergey-prokofev/homework/blob/kube-3.2/img/1.PNG)
+![Задание-2](https://github.com/sergey-prokofev/homework/blob/kube-3.2/img/2.PNG)
 
 
 
